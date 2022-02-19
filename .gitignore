@@ -1,3 +1,5 @@
-./Debug/
-./cmake_debug/
-./Release/
+/Debug/*
+/cmake_debug/*
+/Release/*
+
+
