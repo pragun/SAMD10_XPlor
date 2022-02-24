@@ -1,5 +1,7 @@
 /Debug/*
 /cmake_debug/*
 /Release/*
+/build/*
+
 
 
