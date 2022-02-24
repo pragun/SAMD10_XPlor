@@ -17,9 +17,13 @@ add_subdirectory(asf)
 set(SEGGER_PATH ${CMAKE_SOURCE_DIR}/Segger_RTT)
 set(EXAMPLES ${CMAKE_SOURCE_DIR}/examples)
 
+set(TARGET_NAME samd10_xplor)
+set(SAMD10_EXE ${TARGET_NAME}.elf)
 
-add_executable(samd10_xplor main.c) #${EXAMPLES}/driver_examples.c ${EXAMPLES}/touch_example.c)
-target_link_libraries(samd10_xplor PRIVATE samd10_asf)
-target_include_directories(samd10_xplor PRIVATE ${CMAKE_SOURCE_DIR} ${SEGGER_PATH}/RTT ${SEGGER_PATH}/CONFIG)
-target_link_options(samd10_xplor PRIVATE "-T${ASF_LINKER_SCRIPT}")
+add_executable(${SAMD10_EXE} main.c) #${EXAMPLES}/driver_examples.c ${EXAMPLES}/touch_example.c)
+target_link_libraries(${SAMD10_EXE} PRIVATE samd10_asf)
+target_include_directories(${SAMD10_EXE} PRIVATE ${CMAKE_SOURCE_DIR} ${SEGGER_PATH}/RTT ${SEGGER_PATH}/CONFIG)
+target_link_options(${SAMD10_EXE} PRIVATE "-T${ASF_LINKER_SCRIPT}")
 
+add_custom_target("Binary_file" ALL DEPENDS ${SAMD10_EXE} COMMAND ${CMAKE_OBJCOPY} -Obinary ${SAMD10_EXE} ${TARGET_NAME}.bin)
+add_custom_target("Size_calculation" ALL DEPENDS ${SAMD10_EXE} COMMAND ${CMAKE_SIZE} --format=berkeley ${SAMD10_EXE})
