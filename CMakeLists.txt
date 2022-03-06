@@ -23,7 +23,7 @@ set(EXAMPLES ${CMAKE_SOURCE_DIR}/examples)
 set(TARGET_NAME samd10_xplor)
 set(SAMD10_EXE ${TARGET_NAME}.elf)
 
-add_executable(${SAMD10_EXE} main.c  ${SEGGER_SRCS}) #${EXAMPLES}/driver_examples.c ${EXAMPLES}/touch_example.c)
+add_executable(${SAMD10_EXE} main.c ${SEGGER_SRCS}) #${EXAMPLES}/driver_examples.c ${EXAMPLES}/touch_example.c)
 target_link_libraries(${SAMD10_EXE} PRIVATE samd10_asf)
 target_include_directories(${SAMD10_EXE} PRIVATE ${CMAKE_SOURCE_DIR} ${SEGGER_PATH}/RTT ${SEGGER_PATH}/CONFIG)
 
