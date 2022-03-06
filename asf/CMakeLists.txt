@@ -45,7 +45,7 @@ set(SAMD10_INCLUDE "F:\\samd10\\SAMD10_DFP\\1.1.77\\include")
 set(ASF_INCLUDES ${HAL_PATH}/include ${HAL_UTILS_PATH}/include ${SAMD10_INCLUDE} ${CMSIS_INCLUDE} ${HRI_PATH} ${HPL_ITEMS} ${QTOUCH_PATH})
 set(QTOUCH_INCLUDES ${QTOUCH_PATH} ${QTOUCH_PATH}/include ${QTOUCH_PATH}/datastreamer)
 
-add_library(samd10_asf)
+add_library(samd10_asf OBJECT)
 target_sources(samd10_asf PRIVATE ${ATMEL_START_CSRCS})
 target_sources(samd10_asf PRIVATE ${HAL_UTILS_CSRCS})
 target_sources(samd10_asf PRIVATE ${DEVICE_STARTUP_CSRCS})

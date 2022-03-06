@@ -18,7 +18,7 @@ find_toolchain_exe(CMAKE_STRIP arm-none-eabi-strip)
 find_toolchain_exe(CMAKE_GCOV arm-none-eabi-gcov)
 find_toolchain_exe(CMAKE_OBJDUMP arm-none-eabi-objdump)
 
-set(c_flags --specs=nosys.specs -mthumb -Og -ffunction-sections -mlong-calls -g3 -Wall -Wextra -mcpu=cortex-m0plus -std=gnu99 -MD -MP -MF)
+set(c_flags -mthumb -Og -ffunction-sections -mlong-calls -g3 -Wall -Wextra -mcpu=cortex-m0plus -std=gnu99 -MD -MP -MF)
 set(cxx_flags -fno-exceptions)
 
 set(CMAKE_ASM_COMPILER ${CMAKE_ASM_COMPILER} CACHE FILEPATH "ASM compiler")
@@ -36,7 +36,7 @@ add_compile_options(
   "$<$<COMPILE_LANGUAGE:CXX>:${cxx_flags}>"
 )
 
-add_link_options(--specs=nosys.specs -Wl,--gc-sections)
+add_link_options(-mthumb --specs=nosys.specs -Wl,-Map=output.map -Wl,--gc-sections -mcpu=cortex-m0plus)
 
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
@@ -55,7 +55,7 @@ set(CMAKE_C_OUTPUT_EXTENSION .o)
 #set(CMAKE_C_FLAGS_RELEASE           "-Os -DNDEBUG" CACHE INTERNAL "")
 #set(CMAKE_CXX_FLAGS_DEBUG           "${CMAKE_C_FLAGS_DEBUG}" CACHE INTERNAL "")
 #set(CMAKE_CXX_FLAGS_RELEASE         "${CMAKE_C_FLAGS_RELEASE}" CACHE INTERNAL "")
-#set(CMAKE_EXE_LINKER_FLAGS           "--specs=nosys.specs -Wl,--gc-sections" CACHE INTERNAL "")
+#set(CMAKE_EXE_LINKER_FLAGS           "--specs=nano.specs -Wl,--gc-sections" CACHE INTERNAL "")
 
 #set(CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_COMPILER} <LINK_FLAGS> <OBJECTS> -o <TARGET>")
 #set(CMAKE_C_LINK_EXECUTABLE "${CMAKE_C_COMPILER} <LINK_FLAGS> <OBJECTS> -o <TARGET>")

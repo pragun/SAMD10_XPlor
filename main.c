@@ -1,9 +1,12 @@
 #include <atmel_start.h>
 #include "touch.h"
+#include "SEGGER_RTT.h"
+
 extern volatile uint8_t measurement_done_touch;
 
 int main(void)
 {
+	SEGGER_RTT_Init();
 	uint8_t key_status0 = 0;
 
 	/* Initializes MCU, drivers and middleware */
@@ -14,6 +17,8 @@ int main(void)
 	 */
 	while (1) {
 		/* Does acquisition and post-processing */
+		SEGGER_RTT_printf(0,"Printf test 1\n");
+		//printf("Printf test 2 \n");
 		touch_process();
 
 		if (measurement_done_touch == 1) {
