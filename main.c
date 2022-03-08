@@ -48,7 +48,6 @@ static struct io_descriptor *io;
 static void I2C_0_rx_complete(const struct i2c_s_async_descriptor *const descr)
 {
 	uint8_t c;
-
 	io_read(io, &c, 1);
 }
 
