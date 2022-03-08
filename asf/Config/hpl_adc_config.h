@@ -30,7 +30,7 @@
 // <i> Select the reference for the ADC (REFSEL)
 // <id> adc_reference
 #ifndef CONF_ADC_0_REFSEL
-#define CONF_ADC_0_REFSEL 0x0
+#define CONF_ADC_0_REFSEL 0x1
 #endif
 
 // <o> Prescaler configuration
@@ -91,7 +91,7 @@
 // <i> These bits define the Mux selection for the positive ADC input. (MUXPOS)
 // <id> adc_pinmux_positive
 #ifndef CONF_ADC_0_MUXPOS
-#define CONF_ADC_0_MUXPOS 0x0
+#define CONF_ADC_0_MUXPOS 0x7
 #endif
 
 // <o> Negative Mux Input Selection
@@ -108,7 +108,7 @@
 // <i> These bits define the Mux selection for the negative ADC input. (MUXNEG)
 // <id> adc_pinmux_negative
 #ifndef CONF_ADC_0_MUXNEG
-#define CONF_ADC_0_MUXNEG 0x0
+#define CONF_ADC_0_MUXNEG 0x18
 #endif
 
 // </h>
@@ -185,7 +185,7 @@
 // <i> These bits define the division coefficient in 2n steps. (ADJRES)
 // <id> adc_arch_adjres
 #ifndef CONF_ADC_0_ADJRES
-#define CONF_ADC_0_ADJRES 0x0
+#define CONF_ADC_0_ADJRES 0x5
 #endif
 
 // <o.0..10> Number of Samples to be Collected
@@ -203,14 +203,14 @@
 // <i> Define how many samples should be added together.The result will be available in the Result register (SAMPLENUM)
 // <id> adc_arch_samplenum
 #ifndef CONF_ADC_0_SAMPLENUM
-#define CONF_ADC_0_SAMPLENUM 0xa
+#define CONF_ADC_0_SAMPLENUM 0x5
 #endif
 
 // <o> Sampling Time Length <0-63>
 // <i> These bits control the ADC sampling time in number of half CLK_ADC cycles, depending of the prescaler value, thus controlling the ADC input impedance. (SAMPLEN)
 // <id> adc_arch_samplen
 #ifndef CONF_ADC_0_SAMPLEN
-#define CONF_ADC_0_SAMPLEN 0
+#define CONF_ADC_0_SAMPLEN 1
 #endif
 
 // <o> Window Monitor Mode
