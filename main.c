@@ -44,7 +44,7 @@ void EXTERNAL_IRQ_0_example(void)
 
 
 static struct io_descriptor *io;
-
+/*
 static void I2C_0_rx_complete(const struct i2c_s_async_descriptor *const descr)
 {
 	uint8_t c;
@@ -58,6 +58,7 @@ void I2C_0_example(void)
 	i2c_s_async_set_addr(&I2C_0, 0x55);
 	i2c_s_async_enable(&I2C_0);
 }
+*/
 
 int main(void)
 {
@@ -67,7 +68,7 @@ int main(void)
 
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();
-	I2C_0_example();
+	//I2C_0_example();
 	EXTERNAL_IRQ_0_example();
 
 	/* If the self-capacitance button is touched, the LED is turned ON
