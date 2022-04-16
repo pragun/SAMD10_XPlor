@@ -98,7 +98,7 @@ extern "C" {
 	}
 #define NODE_3_PARAMS                                                                                                  \
 	{                                                                                                                  \
-		X_NONE, Y(2), PRSC_DIV_SEL_8, NODE_GAIN(GAIN_1, GAIN_1), FILTER_LEVEL_16                                       \
+		X_NONE, Y(9), PRSC_DIV_SEL_8, NODE_GAIN(GAIN_1, GAIN_1), FILTER_LEVEL_16                                       \
 	}
 #define NODE_4_PARAMS                                                                                                  \
 	{                                                                                                                  \
@@ -235,8 +235,7 @@ extern "C" {
 /***************** Communication - Data Streamer ******************/
 /**********************************************************/
 
-//#define DEF_TOUCH_DATA_STREAMER_ENABLE 1u
-//#define DATA_STREAMER_BOARD_TYPE USER_BOARD
+#define DEF_TOUCH_DATA_STREAMER_ENABLE 0u
 
 #ifdef __cplusplus
 }

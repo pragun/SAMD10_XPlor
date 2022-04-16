@@ -142,7 +142,7 @@
 // <i> This defines the clock source for generic clock generator 1
 // <id> gclk_gen_1_oscillator
 #ifndef CONF_GCLK_GEN_1_SRC
-#define CONF_GCLK_GEN_1_SRC GCLK_GENCTRL_SRC_OSC32K
+#define CONF_GCLK_GEN_1_SRC GCLK_GENCTRL_SRC_OSC8M
 #endif
 // </h>
 
@@ -151,7 +151,7 @@
 // <i>
 // <id> gclk_gen_1_div
 #ifndef CONF_GCLK_GEN_1_DIV
-#define CONF_GCLK_GEN_1_DIV 1
+#define CONF_GCLK_GEN_1_DIV 250
 #endif
 
 // </h>

@@ -11,14 +11,14 @@
 // <0x02=> External reference
 // <id> dac_arch_refsel
 #ifndef CONF_DAC_REFSEL
-#define CONF_DAC_REFSEL 0
+#define CONF_DAC_REFSEL 1
 #endif
 // </h>
 
 // <e> Advanced Configuration
 // <id> dac_advanced_settings
 #ifndef CONF_DAC_ADVANCED_CONFIG
-#define CONF_DAC_ADVANCED_CONFIG 0
+#define CONF_DAC_ADVANCED_CONFIG 1
 #endif
 
 // <q> Run in standby
@@ -53,7 +53,7 @@
 // <i> Indicate whether internal output is enable or not
 // <id> dac_arch_ioen
 #ifndef CONF_DAC_IOEN
-#define CONF_DAC_IOEN 0
+#define CONF_DAC_IOEN 1
 #endif
 
 // <q> External Output Enable

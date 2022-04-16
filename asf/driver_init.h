@@ -25,20 +25,15 @@ extern "C" {
 #include <hal_ext_irq.h>
 
 #include <hal_usart_async.h>
-
-#include <hal_i2c_s_async.h>
 #include <hal_timer.h>
+#include <hpl_tc_base.h>
 
 #include <hal_dac_sync.h>
 
 #include <hal_evsys.h>
 
-#define SERCOM1_I2CS_BUFFER_SIZE 16
-
 extern struct adc_sync_descriptor    ADC_0;
-extern struct usart_async_descriptor USART;
-
-extern struct i2c_s_async_descriptor I2C_0;
+extern struct usart_async_descriptor USART_0;
 extern struct timer_descriptor       Timer;
 
 extern struct dac_sync_descriptor DAC_0;
@@ -47,13 +42,9 @@ void ADC_0_PORT_init(void);
 void ADC_0_CLOCK_init(void);
 void ADC_0_init(void);
 
-void USART_PORT_init(void);
-void USART_CLOCK_init(void);
-void USART_init(void);
-
-void I2C_0_PORT_init(void);
-void I2C_0_CLOCK_init(void);
-void I2C_0_init(void);
+void USART_0_PORT_init(void);
+void USART_0_CLOCK_init(void);
+void USART_0_init(void);
 
 void DAC_0_PORT_init(void);
 void DAC_0_CLOCK_init(void);

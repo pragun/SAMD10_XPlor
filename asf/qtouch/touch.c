@@ -35,8 +35,6 @@ Copyright (c) 2021 Microchip. All rights reserved.
 #include "touch.h"
 #include "license.h"
 
-#include "datastreamer.h"
-
 #if DEF_PTC_CAL_OPTION != CAL_AUTO_TUNE_NONE
 #error "Autotune feature is NOT supported by this acquisition library. Enable Autotune featuers in START."
 #endif
@@ -240,10 +238,6 @@ void touch_init(void)
 
 	/* Configure touch sensors with Application specific settings */
 	touch_sensors_config();
-
-#if DEF_TOUCH_DATA_STREAMER_ENABLE == 1
-	datastreamer_init();
-#endif
 }
 
 /*============================================================================
@@ -301,10 +295,6 @@ void touch_process(void)
 		} else {
 			measurement_done_touch = 1u;
 		}
-
-#if DEF_TOUCH_DATA_STREAMER_ENABLE == 1
-		datastreamer_output();
-#endif
 	}
 }
 
