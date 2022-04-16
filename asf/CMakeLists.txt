@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 3.6)
 file(GLOB_RECURSE ASF_SRC ${CMAKE_CURRENT_SOURCE_DIR} *.c)
 #message(${ASF_SRC})
 
+list(REMOVE_ITEM ASF_SRC
+## List specific source files to exclude here
+)
+
 set(HAL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/hal)
 set(HAL_UTILS_PATH ${CMAKE_CURRENT_SOURCE_DIR}/hal/utils)
 set(HRI_PATH ${CMAKE_CURRENT_SOURCE_DIR}/hri)
