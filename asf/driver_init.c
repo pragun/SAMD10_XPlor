@@ -189,6 +189,11 @@ void USART_0_init(void)
 	USART_0_PORT_init();
 }
 
+void delay_driver_init(void)
+{
+	delay_init(SysTick);
+}
+
 /**
  * \brief Timer initialization function
  *
@@ -271,6 +276,8 @@ void system_init(void)
 	EXTERNAL_IRQ_0_init();
 
 	USART_0_init();
+
+	delay_driver_init();
 
 	Timer_init();
 	DAC_0_init();
