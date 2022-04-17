@@ -18,7 +18,7 @@ set(EXAMPLES ${CMAKE_CURRENT_SOURCE_DIR}/examples)
 
 
 ## HPL Include paths
-set(HPL_ITEMS adc dac dmac eic evsys gclk pm sercom sysctrl tc)
+set(HPL_ITEMS adc dac dmac eic evsys gclk pm sercom sysctrl tc systick)
 list(APPEND HPL_ITEMS core port )
 list(TRANSFORM HPL_ITEMS PREPEND "${HPL_PATH}/")
 
