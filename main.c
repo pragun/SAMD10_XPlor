@@ -6,14 +6,6 @@ extern qtm_touch_key_config_t    qtlib_key_configs_set1[DEF_NUM_SENSORS];
 
 extern volatile uint8_t measurement_done_touch;
 
-/**
- * Example of using ADC_0 to generate waveform.
- */
-void ADC_0_example(void)
-{
-	adc_sync_enable_channel(&ADC_0, 7);
-}
-
 static void button_on_PA17_pressed(void)
 {
 }
@@ -71,11 +63,21 @@ int main(void)
 	//I2C_0_example();
 	EXTERNAL_IRQ_0_example();
 
+	adc_sync_enable_channel(&ADC_0, 7);
+	dac_sync_enable_channel(&DAC_0, 0);
+
+	timer_start(&Timer);
 	/* If the self-capacitance button is touched, the LED is turned ON
 	 * When touch is released, the LED is turned OFF
 	 */
 	uint16_t j = 0;
 	uint16_t adc_val = 0;
+	uint16_t dac_val = 0;
+	uint16_t dac_bias = 500;
+	uint16_t dac_out = 0;
+	uint32_t timer_out = 0;
+	uint32_t last_timer_out = 0;
+	int32_t del_timer = 0;
 
 	while (1) {
 		/* Does acquisition and post-processing */
@@ -92,10 +94,17 @@ int main(void)
 				gpio_set_pin_level(LED, false);
 		}
 
+		dac_out = dac_val + dac_bias;
 
+		dac_sync_write(&DAC_0, 0, &dac_out, 1);
 		adc_sync_read_channel(&ADC_0, 7, &adc_val, 2);
 
+		timer_out = Timer.time;
+		del_timer = timer_out - last_timer_out;
+		last_timer_out = timer_out;
 
+		dac_val = (dac_val+1) % 200;
+	
 		uint16_t val = 0;
 
 		if(j%2000 == 0){
@@ -103,6 +112,7 @@ int main(void)
 			SEGGER_RTT_printf(0, "ADC: %d \n", adc_val);
 
 			for (uint8_t i= 0u; i < DEF_NUM_CHANNELS; i++) {
+				SEGGER_RTT_printf(0,"Time Del: %d ",del_timer);
 
 				SEGGER_RTT_printf(0,"Touch %d ",i);
 

@@ -53,7 +53,7 @@
 // <i> Indicate whether internal output is enable or not
 // <id> dac_arch_ioen
 #ifndef CONF_DAC_IOEN
-#define CONF_DAC_IOEN 1
+#define CONF_DAC_IOEN 0
 #endif
 
 // <q> External Output Enable
